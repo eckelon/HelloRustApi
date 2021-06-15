@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+./run_tests
+grcov . --binary-path ./target/debug/ -s . -t html --ignore src/routes.rs --ignore src/main.rs --branch --ignore-not-existing -o ./coverage/
+open ./coverage/index.html
