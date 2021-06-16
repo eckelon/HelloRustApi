@@ -2,7 +2,6 @@ use crate::dao::people::get_people;
 use warp::reply::{Html, Json};
 use warp::{path, reply, Filter, Rejection, Reply};
 
-
 fn get_people_route() -> impl Filter<Extract = (Json,), Error = Rejection> + Clone {
     warp::get()
         .and(path("people"))
