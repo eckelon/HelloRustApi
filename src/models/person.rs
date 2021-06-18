@@ -1,6 +1,6 @@
-use serde::{Deserialize, Serialize};
+use nanoserde::{DeJson, SerJson};
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
+#[derive(SerJson, DeJson, Clone, Debug)]
 pub struct Person {
     pub name: String,
     pub age: u8,
