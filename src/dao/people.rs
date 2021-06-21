@@ -44,7 +44,7 @@ mod tests {
         let people = get_people();
         assert_eq!(
             people_example.trim(),
-            nanoserde::SerJson::serialize_json(&people).unwrap()
+            nanoserde::SerJson::serialize_json(&people)
         );
     }
 
@@ -55,7 +55,7 @@ mod tests {
         let people = get_people();
         assert_eq!(
             people_example.trim(),
-            nanoserde::SerJson::serialize_json(&people).unwrap()
+            nanoserde::SerJson::serialize_json(&people)
         );
     }
     #[test]
@@ -63,9 +63,6 @@ mod tests {
         env::set_var("PEOPLE_API_DATASOURCE_FILE", "wrong_file.fake");
         let people_example = "[]";
         let people = get_people();
-        assert_eq!(
-            people_example,
-            nanoserde::SerJson::serialize_json(&people).unwrap()
-        );
+        assert_eq!(people_example, nanoserde::SerJson::serialize_json(&people));
     }
 }
