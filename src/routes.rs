@@ -7,13 +7,13 @@ fn get_people_route(
 {
     warp::get()
         .and(path("people"))
-        .map(move || http::Response::builder().body(SerJson::serialize_json(&get_people())))
+        .map(|| http::Response::builder().body(SerJson::serialize_json(&get_people())))
 }
 
 fn get_misco_route() -> impl Filter<Extract = (reply::Html<String>,), Error = Rejection> + Clone {
     warp::get()
         .and(path("hello"))
-        .map(move || reply::html(String::from("Hello world!")))
+        .map(|| reply::html(String::from("Hello world!")))
 }
 
 pub fn get_routes() -> impl Filter<Extract = (impl Reply,), Error = Rejection> + Clone {
